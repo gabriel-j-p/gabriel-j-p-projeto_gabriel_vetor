@@ -1,11 +1,3 @@
-var meuFormulario = document.getElementById("formulario");
-meuFormulario.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  adicionarValor();
-  mostrarPares();
-});
-
 let vetor = [];
 
 function adicionarValor() {
@@ -13,8 +5,8 @@ function adicionarValor() {
   vetor.push(valor);
 
   const tabela = document.getElementById('tabelaValores').getElementsByTagName('tbody')[0];
-  const novalinha = tabela.insertRow();
-  const celula = novalinha.insertCell();
+  const novaLinha = tabela.insertRow();
+  const celula = novaLinha.insertCell(0);
   celula.textContent = valor;
 
   document.getElementById('valor').value = '';
@@ -22,7 +14,9 @@ function adicionarValor() {
 
 function mostrarPares() {
   const tabela = document.getElementById("tabelaPares").getElementsByTagName("tbody")[0];
-
+  
+  // Limpa a tabela antes de adicionar novos valores
+  tabela.innerHTML = '';
 
   for (let i = 0; i < vetor.length; i++) {
     const valor = vetor[i];
